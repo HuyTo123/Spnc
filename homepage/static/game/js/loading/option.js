@@ -100,6 +100,8 @@ export default class Option {
             scene.checkpoint = 'A'
             scene.checkpointnow = 'A'
 
+            scene.btnrank.setVisible(true); scene.btnHelp.setVisible(true)
+
         })
 
 

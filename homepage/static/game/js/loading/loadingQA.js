@@ -84,7 +84,7 @@ export default class LoadingQA{
         scene.load.image('question9A','../assets/QuestionA/Quest9A/question9A.png')
         scene.load.image('ans19A','../assets/QuestionA/Quest9A/ans1.png')
         scene.load.image('ans19Achosen','../assets/QuestionA/Quest9A/ans1chosen.png')
-        scene.load.image('ans29A','../assets/QuestionA/Quest9A/ans2.png')
+        scene.load.image('ans29A','../assets/QuestionA/Quest9A/ans2a.png')
         scene.load.image('ans29Achosen','../assets/QuestionA/Quest9A/ans2chosen.png')
         scene.load.image('ans39A','../assets/QuestionA/Quest9A/ans3.png')
         scene.load.image('ans39Achosen','../assets/QuestionA/Quest9A/ans3chosen.png')
@@ -211,6 +211,11 @@ export default class LoadingQA{
     }
     
     static LoadCDA(scene,numb){
+        console.log(numb)
+        scene.ans1.setVisible(true)
+        scene.ans2.setVisible(true)
+        scene.ans3.setVisible(true)
+
         if(numb == 1){
             scene.question.setTexture('question1A')
             scene.ans1.setTexture('ans11A');scene.ans1chosen.setTexture('ans11Achosen')

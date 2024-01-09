@@ -13,16 +13,17 @@ export default class Mainscene extends Phaser.Scene{
 
     }
     create(){
-        this.quest = this.add.text(50, 165, "1", { font: "40px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false);
-        this.questnumber = this.add.text(85, 165, "/20", { font: "40px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false);
-        this.timer = this.add.text(723.5, 26.5, "30", { font: "32px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false);
+        this.quest = this.add.text(66, 189, "1", { font: "40px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false).setOrigin(0.5,0.5);
+        this.questnumber = this.add.text(90, 165, "/20", { font: "40px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false);
+        this.timer = this.add.text(741, 44.5, "30", { font: "32px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false).setOrigin(0.5,0.5);
         this.endThongke = this.add.text(260,420,"TRẢ LỜI ĐÚNG     /20 CÂU",{font: "25px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false)
         this.endPoint = this.add.text(433,420,"10",{font: "25px Tahoma", fill: "#FFFFF" }).setDepth(3).setOrigin(0,0).setVisible(false)
         
+        this.chancepoint = false
         this.checkpoint = ''
         this.checkpointnow = ''
         this.onworking =  false
-        this.timevalue = 5
+        this.timevalue = 30
         this.count = 0
         this.checkend = 0 
         this.correctpoint = 0
@@ -32,7 +33,7 @@ export default class Mainscene extends Phaser.Scene{
         LoadingQA.create(this)
         LoadingNeed.create(this)
         Option.create(this)
-        
+
         this.btnNext.on('pointerdown',()=>{
             if(this.checkpointnow == 'A'){
                 if(this.arrayQuest.length != 0){

@@ -25,10 +25,12 @@ export default class endDashboard{
         scene.quest.setVisible(false)
         scene.questnumber.setVisible(false)
         scene.timer.setVisible(false)
+        
         scene.endThongke.setVisible(true)
         scene.endPoint.setVisible(true)
         scene.endgame.setVisible(true)
         scene.btnReturn.setVisible(true)
+
         
         scene.correctpoint = 0
         scene.falsepoint = 0
