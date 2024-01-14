@@ -26,6 +26,35 @@ export default class LoadingNeed{
         scene.load.image('markdashboard','../assets/img/markdashboard.png')
 
     }
+    static closevrything(scene){
+        scene.fadeground.setVisible(false)
+        scene.assitDashboard.setVisible(false)
+        scene.endgame.setVisible(false)
+        scene.truepic.setVisible(false)
+        scene.falsepic.setVisible(false)
+        scene.btnNext.setVisible(false); scene.btnNextchosen.setVisible(false)
+        scene.btnReturn.setVisible(false); scene.btnReturnchosen.setVisible(false)
+        scene.btnHelp.setVisible(false); scene.btnHelpchosen.setVisible(false)
+        scene.btnrank.setVisible(false); scene.btnrankchosen.setVisible(false)
+        scene.btnClose.setVisible(false); scene.btnClosechosen.setVisible(false)
+        scene.btn5050.setVisible(false); scene.btn5050chosen.setVisible(false)
+        scene.btnChance.setVisible(false); scene.btnChancechosen.setVisible(false)
+        scene.btnTime.setVisible(false); scene.btnTimechosen.setVisible(false)
+        scene.markDashboard.setVisible(false)
+        scene.text5050.setVisible(false); scene.textChance.setVisible(false)
+        scene.textTime.setVisible(false); scene.textcorrect.setVisible(false)
+        scene.textleft.setVisible(false)
+        scene.ans1.setVisible(false); scene.ans1chosen.setVisible(false)
+        scene.ans2.setVisible(false); scene.ans2chosen.setVisible(false)
+        scene.ans3.setVisible(false); scene.ans3chosen.setVisible(false)
+        scene.anscorrect.setVisible(false); scene.anscorrectchosen.setVisible(false)
+        scene.question.setVisible(false)
+
+        scene.quest.setVisible(false)
+        scene.questnumber.setVisible(false)
+        scene.timer.setVisible(false)
+        
+    }
     static create(scene){
         scene.fadeground =  scene.add.image(0,0,'fadeground').setOrigin(0,0).setDepth(10).setInteractive().setVisible(false).setAlpha(0.4)
         scene.assitDashboard = scene.add.image(400,300,'assitance').setDepth(11).setVisible(false)
@@ -153,14 +182,17 @@ export default class LoadingNeed{
            closeAssit()
         })
         scene.btn5050.on('pointerdown',()=>{
+            scene.btn5050.disableInteractive()
             closeAssit()
             scene.ans1.setVisible(false); scene.ans2.setVisible(false)
         })
         scene.btnChance.on('pointerdown',()=>{
+            scene.btnChance.disableInteractive()
             closeAssit()
             scene.chancepoint = true
         })
         scene.btnTime.on('pointerdown',()=>{
+            scene.btnTime.disableInteractive()
             closeAssit()
             scene.timevalue += 30
         })

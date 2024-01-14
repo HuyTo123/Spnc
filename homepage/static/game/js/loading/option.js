@@ -80,39 +80,43 @@ export default class Option {
 
         scene.cdA.on('pointerdown',()=>{
             allStaticclose()
-          
-          
+            allOpen()
 
-          
+            scene.checkpoint = 'A'
+            scene.checkpointnow = 'A'
+        })
+        scene.cdB.on('pointerdown',()=>{
+            allStaticclose(); allOpen()
+            scene.checkpoint = 'B'
+            scene.checkpointnow = 'B'
+        })
+        scene.cdC.on('pointerdown',()=>{
+            allStaticclose(); allOpen()
+            scene.checkpoint = 'C'
+            scene.checkpointnow = 'C'
+        })
+        function allOpen(){
             scene.btnReturn.setVisible(false); scene.btnReturnchosen.setVisible(false)
             scene.onworking = true
 
             scene.question.setVisible(true)
-            scene.ans1.setVisible(true);scene.ans1chosen.setVisible(false)
-            scene.ans2.setVisible(true); scene.ans2chosen.setVisible(false)
-            scene.ans3.setVisible(true); scene.ans3chosen.setVisible(false)
-            scene.anscorrect.setVisible(true); scene.anscorrectchosen.setVisible(false)
+            scene.ans1.setVisible(true)
+            scene.ans2.setVisible(true)
+            scene.ans3.setVisible(true)
+            scene.anscorrect.setVisible(true)
             scene.quest.setVisible(true)
             scene.questnumber.setVisible(true)
             scene.timer.setVisible(true)
-
-
-            scene.checkpoint = 'A'
-            scene.checkpointnow = 'A'
-
             scene.btnrank.setVisible(true); scene.btnHelp.setVisible(true)
-
-        })
-
-
+        }
         function allStaticclose(){
             scene.dashboardOption.setVisible(false)
             scene.cdA.setVisible(false); scene.cdAchosen.setVisible(false)
-            scene.cdB.setVisible(false)
-            scene.cdC.setVisible(false)
-            scene.cdD.setVisible(false)
-            scene.cdE.setVisible(false)
-            scene.cdF.setVisible(false)
+            scene.cdB.setVisible(false); scene.cdBchosen.setVisible(false)
+            scene.cdC.setVisible(false); scene.cdCchosen.setVisible(false)
+            scene.cdD.setVisible(false); scene.cdDchosen.setVisible(false)
+            scene.cdE.setVisible(false); scene.cdEchosen.setVisible(false)
+            scene.cdF.setVisible(false); scene.cdFchosen.setVisible(false)
     
         }
 
@@ -134,7 +138,6 @@ export default class Option {
     static Refund(scene){
 
         scene.dashboardOption.setVisible(true)
-
         scene.cdA.setVisible(true); scene.cdAchosen.setVisible(false)
         scene.cdB.setVisible(true)
         scene.cdC.setVisible(true)
