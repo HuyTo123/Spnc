@@ -1,4 +1,4 @@
-import LoadingQA from "../loading/loadingQA.js"; import LoadingQB from "../loading/loadingQB.js"; import LoadingQC from "../loading/loadingQC.js";
+import LoadingQA from "../loading/loadingQA.js"; import LoadingQB from "../loading/loadingQB.js"; import LoadingQC from "../loading/loadingQC.js";import LoadingQD from "../loading/loadingQD.js"; import LoadingQE from "../loading/loadingQE.js";import LoadingQF from "../loading/loadingQF.js";
 import LoadingNeed from "../loading/loadingNeed.js"
 import endDashboard from "../loading/endDashboard.js"
 import Option from "../loading/option.js"
@@ -12,6 +12,9 @@ export default class Mainscene extends Phaser.Scene{
         Option.preload(this)
         LoadingQB.preload(this)
         LoadingQC.preload(this)
+        LoadingQD.preload(this)
+        LoadingQE.preload(this)
+        LoadingQF.preload(this)
     }
     create(){
         this.quest = this.add.text(66, 189, "1", { font: "40px Tahoma", fill: "#FFFFF" }).setDepth(2).setVisible(false).setOrigin(0.5,0.5);
@@ -84,6 +87,54 @@ export default class Mainscene extends Phaser.Scene{
                     endDashboard.create(this)
                 }
             }
+            else if(this.checkpointnow == 'D'){
+                if(this.arrayQuest.length != 0){
+                    LoadingQD.destroy(this)
+                    LoadingQD.LoadCDD(this,this.randomQuest())
+                    this.timevalue = 30
+                    this.timer.text = this.timevalue
+
+                    this.quest.text = this.count
+                    this.staticObject(false)
+                    
+                }
+                else {
+                    this.endPoint.text = this.correctpoint
+                    endDashboard.create(this)
+                }
+            }
+            else if(this.checkpointnow == 'E'){
+                if(this.arrayQuest.length != 0){
+                    LoadingQE.destroy(this)
+                    LoadingQE.LoadCDE(this,this.randomQuest())
+                    this.timevalue = 30
+                    this.timer.text = this.timevalue
+
+                    this.quest.text = this.count
+                    this.staticObject(false)
+                    
+                }
+                else {
+                    this.endPoint.text = this.correctpoint
+                    endDashboard.create(this)
+                }
+            }
+            else if(this.checkpointnow == 'F'){
+                if(this.arrayQuest.length != 0){
+                    LoadingQF.destroy(this)
+                    LoadingQF.LoadCDF(this,this.randomQuest())
+                    this.timevalue = 30
+                    this.timer.text = this.timevalue
+
+                    this.quest.text = this.count
+                    this.staticObject(false)
+                    
+                }
+                else {
+                    this.endPoint.text = this.correctpoint
+                    endDashboard.create(this)
+                }
+            }
            
            
         })
@@ -110,9 +161,33 @@ export default class Mainscene extends Phaser.Scene{
 
                         this.staticObject(false)
                     }
-                    else if(this.checkpointnow == 'c'){
+                    else if(this.checkpointnow == 'C'){
                         LoadingQC.destroy(this)
                         LoadingQC.LoadCDC(this,this.randomQuest())
+                        this.quest.text = this.count
+                        this.timevalue = 30
+                        this.timer.text = this.timevalue
+                        this.staticObject(false)
+                    }
+                    else if(this.checkpointnow == 'D'){
+                        LoadingQD.destroy(this)
+                        LoadingQD.LoadCDD(this,this.randomQuest())
+                        this.quest.text = this.count
+                        this.timevalue = 30
+                        this.timer.text = this.timevalue
+                        this.staticObject(false)
+                    }
+                    else if(this.checkpointnow == 'E'){
+                        LoadingQE.destroy(this)
+                        LoadingQE.LoadCDE(this,this.randomQuest())
+                        this.quest.text = this.count
+                        this.timevalue = 30
+                        this.timer.text = this.timevalue
+                        this.staticObject(false)
+                    }
+                    else if(this.checkpointnow == 'F'){
+                        LoadingQF.destroy(this)
+                        LoadingQF.LoadCDF(this,this.randomQuest())
                         this.quest.text = this.count
                         this.timevalue = 30
                         this.timer.text = this.timevalue
@@ -147,8 +222,23 @@ export default class Mainscene extends Phaser.Scene{
             this.quest.text = this.count
             this.checkpoint = ''
         }
-        else if(this.checkpoint == 'c'){
+        else if(this.checkpoint == 'C'){
             LoadingQC.LoadCDC(this,this.randomQuest())
+            this.quest.text = this.count
+            this.checkpoint = ''
+        }
+        else if(this.checkpoint == 'D'){
+            LoadingQD.LoadCDD(this,this.randomQuest())
+            this.quest.text = this.count
+            this.checkpoint = ''
+        }
+        else if(this.checkpoint == 'E'){
+            LoadingQE.LoadCDE(this,this.randomQuest())
+            this.quest.text = this.count
+            this.checkpoint = ''
+        }
+        else if(this.checkpoint == 'F'){
+            LoadingQF.LoadCDF(this,this.randomQuest())
             this.quest.text = this.count
             this.checkpoint = ''
         }
@@ -156,7 +246,6 @@ export default class Mainscene extends Phaser.Scene{
     }   
     staticObject(check){
         if(check == true){
-            console.log('true')
             this.ans1.disableInteractive()
             this.ans1chosen.setVisible(false)
             this.ans2.disableInteractive()
@@ -171,7 +260,6 @@ export default class Mainscene extends Phaser.Scene{
 
         }
         else if(check==false){
-            console.log('false')
 
             this.ans1.setInteractive()
             this.ans2.setInteractive()

@@ -19,6 +19,10 @@ export default class Option {
         scene.load.image('cdF','../assets/btn/cdF.png')
         scene.load.image('cdFchosen','../assets/btn/cdFchosen.png')
 
+        scene.load.image('startbg','../assets/img/startbg.png')
+        scene.load.image('btnStart','../assets/btn/start.png')
+        scene.load.image('btnStartchosen','../assets/btn/startchosen.png')
+
 
     }
     static create(scene){
@@ -30,7 +34,9 @@ export default class Option {
         scene.cdD =  scene.add.image(25,280,'cdD').setOrigin(0,0).setDepth(2).setInteractive(); scene.cdDchosen = scene.add.image(25,280,'cdDchosen').setOrigin(0,0).setDepth(2.1).setVisible(false)
         scene.cdE =  scene.add.image(275,280,'cdE').setOrigin(0,0).setDepth(2).setInteractive(); scene.cdEchosen = scene.add.image(275,280,'cdEchosen').setOrigin(0,0).setDepth(2.1).setVisible(false)
         scene.cdF =  scene.add.image(525,280,'cdF').setOrigin(0,0).setDepth(2).setInteractive(); scene.cdFchosen = scene.add.image(525,280,'cdFchosen').setOrigin(0,0).setDepth(2.1).setVisible(false)
-
+        allStaticclose()
+        scene.startbg = scene.add.image(0,0,'startbg').setOrigin(0,0).setDepth(2).setInteractive()
+        scene.btnStart = scene.add.image(400,275,'btnStart').setDepth(2.1).setInteractive(); scene.btnStartchosen = scene.add.image(400,275,'btnStartchosen').setDepth(2.2).setVisible(false)
         scene.cdA.on('pointerover',()=>{
             scene.cdAchosen.setVisible(true)
         })
@@ -73,7 +79,16 @@ export default class Option {
             scene.cdFchosen.setVisible(false)
         })
 
-
+        scene.btnStart.on('pointerover',()=>{
+            scene.btnStartchosen.setVisible(true)
+        })
+        scene.btnStart.on('pointerout',()=>{
+            scene.btnStartchosen.setVisible(false)
+        })
+        scene.btnStart.on('pointerdown',()=>{
+            scene.btnStart.setVisible(false); scene.btnStartchosen.setVisible(false); scene.startbg.setVisible(false)
+            allStaticopen()
+        })
 
 
 
@@ -94,6 +109,21 @@ export default class Option {
             allStaticclose(); allOpen()
             scene.checkpoint = 'C'
             scene.checkpointnow = 'C'
+        })
+        scene.cdD.on('pointerdown',()=>{
+            allStaticclose(); allOpen()
+            scene.checkpoint = 'D'
+            scene.checkpointnow = 'D'
+        })
+        scene.cdE.on('pointerdown',()=>{
+            allStaticclose(); allOpen()
+            scene.checkpoint = 'E'
+            scene.checkpointnow = 'E'
+        })
+        scene.cdF.on('pointerdown',()=>{
+            allStaticclose(); allOpen()
+            scene.checkpoint = 'F'
+            scene.checkpointnow = 'F'
         })
         function allOpen(){
             scene.btnReturn.setVisible(false); scene.btnReturnchosen.setVisible(false)
@@ -119,7 +149,15 @@ export default class Option {
             scene.cdF.setVisible(false); scene.cdFchosen.setVisible(false)
     
         }
-
+        function allStaticopen(){
+            scene.dashboardOption.setVisible(true)
+            scene.cdA.setVisible(true)
+            scene.cdB.setVisible(true)
+            scene.cdC.setVisible(true)
+            scene.cdD.setVisible(true)
+            scene.cdE.setVisible(true)
+            scene.cdF.setVisible(true)
+        }
 
 
 
@@ -138,7 +176,7 @@ export default class Option {
     static Refund(scene){
 
         scene.dashboardOption.setVisible(true)
-        scene.cdA.setVisible(true); scene.cdAchosen.setVisible(false)
+        scene.cdA.setVisible(true)
         scene.cdB.setVisible(true)
         scene.cdC.setVisible(true)
         scene.cdD.setVisible(true)
